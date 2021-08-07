@@ -20,14 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="86e0c672-6ba9-46ae-be80-7c352f208862" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/workdays/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/doctors/appointments.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DoctorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DoctorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Doctor.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/DoctorShift.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/appointments/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/appointments/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/doctors/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/doctors/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -187,7 +182,7 @@
       <option name="presentableId" value="Default" />
       <updated>1628339686630</updated>
       <workItem from="1628339687788" duration="969000" />
-      <workItem from="1628360967035" duration="4383000" />
+      <workItem from="1628360967035" duration="5367000" />
     </task>
     <servers />
   </component>
@@ -215,10 +210,10 @@
       <screen x="0" y="0" width="1360" height="720" />
     </state>
     <state x="410" y="115" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1360.720@0.0.1360.720" timestamp="1628361187438" />
-    <state x="514" y="283" key="NewPhpFileDialog" timestamp="1628359430476">
+    <state x="514" y="283" key="NewPhpFileDialog" timestamp="1628366721634">
       <screen x="0" y="0" width="1360" height="720" />
     </state>
-    <state x="514" y="283" key="NewPhpFileDialog/0.0.1360.720@0.0.1360.720" timestamp="1628359430476" />
+    <state x="514" y="283" key="NewPhpFileDialog/0.0.1360.720@0.0.1360.720" timestamp="1628366721634" />
     <state x="387" y="64" width="585" height="592" key="find.popup" timestamp="1628361339779">
       <screen x="0" y="0" width="1360" height="720" />
     </state>
@@ -227,16 +222,5 @@
       <screen x="0" y="0" width="1360" height="720" />
     </state>
     <state x="343" y="41" width="672" height="678" key="search.everywhere.popup/0.0.1360.720@0.0.1360.720" timestamp="1628341312475" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/appointments/index.blade.php</url>
-          <line>9</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

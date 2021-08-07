@@ -30,6 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('doctors', DoctorController::class);
 Route::get('/doctors/{id}/workdays/create', [WorkdayController::class, 'create'])->name('doctors.workdays.create');
 Route::post('/doctors/workdays/store', [WorkdayController::class, 'store'])->name('doctors.workdays.store');
+Route::get('/doctors/{id}/appointments/', [DoctorController::class, 'appointments'])->name('doctors.appointments');
 Route::get('/doctors/{id}/patients/', [DoctorController::class, 'patients'])->name('doctors.patients');
 Route::get('/doctors/{id}/register/', [AppointmentController::class, 'create'])->name('doctors.patients.register');
 Route::resource('/doctors/{doctorId}/patients/{patientId}/prescriptions', PrescriptionController::class);

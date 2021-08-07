@@ -15,6 +15,13 @@ class DoctorController extends Controller
         return view('doctors.index', compact('doctors'));
     }
 
+    public function appointments($id)
+    {
+        $doctor = Doctor::find($id);
+        $appointments = Appointment::where('doctor_id', $id)->get();
+        return view('doctors.appointments', compact('appointments', 'doctor'));
+    }
+
     public function patients($id)
     {
         $doctor = Doctor::find($id);
