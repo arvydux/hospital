@@ -24,7 +24,7 @@
                 <td>{{$doctor->name}}</td>
                 <td>{{$doctor->expertise}}</td>
                 <td>
-                    <a class="btn btn-info" href="">Register patient</a>
+                    <a class="btn btn-info" href="{{ route('doctor.register-patient', $doctor->id)}}">Register patient</a>
                     <a class="btn btn-info" href="">View appointments</a>
                     <a class="btn btn-info" href="">View patients</a>
 
