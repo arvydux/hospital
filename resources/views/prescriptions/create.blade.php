@@ -5,10 +5,10 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Add new prescription</h2>
+                    <h2>Add new prescription for {{$patient->name}}</h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-primary" href="{{route('prescriptions.index', [$doctorId, $patientId])}}"> Back</a>
+                    <a class="btn btn-primary" href="{{route('doctors.patients', [$doctor->id])}}"> Back</a>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
             </div>
         @endif
 
-        <form action="{{ route('prescriptions.store', [$doctorId, $patientId])}}" method="POST">
+        <form action="{{ route('doctors.patients.prescriptions.store', [$doctor->id, $patient->id])}}" method="POST">
             @csrf
 
             <div class="row">
@@ -42,8 +42,20 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <input type="hidden" name="patient-id" class="form-control" value="{{$patientId}}">
-                        <input type="hidden" name="doctor-id" class="form-control" value="{{$doctorId}}">
+                        <input type="hidden" name="patient-id" class="form-control" value="{{$patient->id}}">
+                        <input type="hidden" name="doctor-id" class="form-control" value="{{$doctor->id}}">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Patient name:</strong>
+                        {{$patient->name}}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Doctor name:</strong>
+                        {{$doctor->name}}
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">

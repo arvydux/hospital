@@ -11,13 +11,17 @@ class PrescriptionController extends Controller
 {
     public function index($doctorId, $patientId)
     {
-        $patient = Doctor::find($doctorId)->patients->find($patientId);
-        return view('prescriptions.index', compact('patient'));
+        $prescriptions = Prescription::where('doctor_id', $doctorId)->where('patient_id', $patientId)->get();
+        $doctor = Doctor::find($doctorId);
+        $patient = Patient::find($patientId);
+        return view('prescriptions.index', compact('doctor','patient', 'prescriptions'));
     }
 
     public function create($doctorId, $patientId)
     {
-        return view('prescriptions.create', compact('doctorId', 'patientId'));;
+        $patient = Patient::find($patientId);
+        $doctor = Doctor::find($doctorId);
+        return view('prescriptions.create', compact('patient','doctor'));;
     }
 
     public function store(Request $request)
@@ -37,12 +41,23 @@ class PrescriptionController extends Controller
         ]);
         $prescription->save();
 
-        $patient = Doctor::find($request->get('doctor-id'))->patients->find($request->get('patient-id'));
-        return redirect(route('prescriptions.index', [$request->get('doctor-id'), $request->get('patient-id')]))->with('patient', $patient)->with('success', 'Prescription created!');
+        return redirect(route('doctors.patients', $request->get('doctor-id')))->with('success', 'Prescription created!');
+
     }
 
-    public function show()
+    public function show($prescriptionId)
     {
-        echo 235;
+        //$prescription = prescription::find($prescriptionId);
+        //return view('prescriptions.create', compact('patient','doctor'))->with('success', 'Prescription deleted!');;;
+    }
+
+    public function destroy($doctorId, $patientId, $prescriptionId)
+    {
+        //$patient = Patient::find($patientId);
+        //$doctor = Doctor::find($doctorId);
+        $prescription = prescription::find($prescriptionId);
+        $prescription->delete();
+        //return view('prescriptions.index', compact('patient','doctor'))->with('success', 'Prescription deleted!');;
+        return redirect(route('doctors.patients.prescriptions', [$doctorId, $patientId]))->with('success', 'Prescription deleted!');
     }
 }

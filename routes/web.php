@@ -33,7 +33,15 @@ Route::post('/doctors/workdays/store', [WorkdayController::class, 'store'])->nam
 Route::get('/doctors/{id}/appointments/', [DoctorController::class, 'appointments'])->name('doctors.appointments');
 Route::get('/doctors/{id}/patients/', [DoctorController::class, 'patients'])->name('doctors.patients');
 Route::get('/doctors/{id}/register/', [AppointmentController::class, 'create'])->name('doctors.patients.register');
-Route::resource('/doctors/{doctorId}/patients/{patientId}/prescriptions', PrescriptionController::class);
+Route::get('/doctors/{doctorId}/patients/{patientId}/prescriptions', [PrescriptionController::class, 'index'])->name('doctors.patients.prescriptions');
+Route::get('/doctors/{doctorId}/patients/{patientId}/prescriptions/create', [PrescriptionController::class, 'create'])->name('doctors.patients.prescriptions.create');
+Route::post('/doctors/{doctorId}/patients/{patientId}/prescriptions/store',
+    [PrescriptionController::class, 'store'])->name('doctors.patients.prescriptions.store');
+Route::post('/doctors/{doctorId}/patients/{patientId}/prescriptions/show',
+    [PrescriptionController::class, 'show'])->name('doctors.patients.prescriptions.show');
+Route::delete('/doctors/{doctorId}/patients/{patientId}/prescriptions/{prescriptionId}/destroy',
+    [PrescriptionController::class, 'destroy'])->name('doctors.patients.prescriptions.destroy');
+//Route::resource('/doctors/{doctorId}/patients/{patientId}/prescriptions', PrescriptionController::class);
 Route::resource('appointments', AppointmentController::class);
 Route::get('/patients/', [PatientController::class, 'index'])->name('patients.index');
 Route::get('/patients/create', [PatientController::class, 'create'])->name('patients.create');

@@ -18,14 +18,14 @@ class DoctorController extends Controller
     public function appointments($id)
     {
         $doctor = Doctor::find($id);
-        $appointments = Appointment::where('doctor_id', $id)->get();
+        $appointments = $doctor->appointments;
         return view('doctors.appointments', compact('appointments', 'doctor'));
     }
 
     public function patients($id)
     {
         $doctor = Doctor::find($id);
-        $appointments = Appointment::where('doctor_id', $id)->get();
+        $appointments = $doctor->appointments;
         $patientsId = [];
         foreach ($appointments as $appointment){
             $patientsId[] = $appointment->patient_id;

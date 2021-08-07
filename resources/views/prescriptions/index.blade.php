@@ -14,7 +14,7 @@
                     <h2>Patient {{$patient->name}} prescriptions</h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-success" href="{{ route('prescriptions.create', [$patient->doctor_id, $patient->id])}}"> Create new prescription</a>
+                    <a class="btn btn-primary" href="{{route('doctors.patients', $doctor->id)}}"> Back</a>
                 </div>
             </div>
         </div>
@@ -24,12 +24,20 @@
                 <th>Prescription id</th>
                 <th>Drug name</th>
                 <th>Symptoms</th>
+                <th>Prescription actions</th>
             </tr>
             @foreach($patient->prescriptions  as $prescription)
                 <tr>
                     <td>{{$prescription->id}}</td>
                     <td>{{$prescription->drug_name}}</td>
                     <td>{{$prescription->symptoms}}</td>
+                    <td>
+                        <form action="{{route('doctors.patients.prescriptions.destroy', [$doctor->id, $patient->id, $prescription->id])}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
             </tbody></table>

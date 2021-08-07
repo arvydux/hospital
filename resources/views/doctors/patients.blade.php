@@ -16,13 +16,15 @@
             <tbody><tr>
                 <th>Patient's name</th>
                 <th>Patient's email</th>
-                <th>Prescriptions</th>
+                <th>Actions with prescriptions</th>
             </tr>
             @foreach($patients as $patient)
                 <tr>
                     <td>{{$patient->name}}</td>
                     <td>{{$patient->email}}</td>
-                    <td><a class="btn btn-info" href="{{ route('prescriptions.index', [$doctor->id, $patient->id])}}">View prescriptions</a></td>
+                    <td><a class="btn btn-info" href="{{ route('doctors.patients.prescriptions.create', [$doctor->id, $patient->id])}}">Make prescription</a>
+                        <a class="btn btn-info" href="{{ route('doctors.patients.prescriptions', [$doctor->id, $patient->id])}}">View prescriptions</a>
+                    </td>
                 </tr>
             @endforeach
             </tbody></table>

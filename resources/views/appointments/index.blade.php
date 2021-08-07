@@ -24,7 +24,7 @@
                 <th>Appointment date/time</th>
                 <th>Doctor's name</th>
                 <th>Patient's name</th>
-                <th width="280px">Appointment action</th>
+                <th width="280px">Appointment actions</th>
             </tr>
             @foreach($appointments as $appointment)
                 <tr>

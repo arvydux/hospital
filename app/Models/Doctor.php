@@ -11,6 +11,11 @@ class Doctor extends Model
 {
     use HasFactory;
 
+    public function appointments()
+    {
+        return $this->hasMany(appointment::class,'doctor_id');
+    }
+
     public function workdays()
     {
         return $this->hasMany(workday::class,'doctor_id');
