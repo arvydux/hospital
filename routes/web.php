@@ -31,3 +31,4 @@ Route::get('/patients/create', [PatientController::class, 'create'])->name('pati
 Route::post('/patients/store', [PatientController::class, 'store'])->name('patients.store');
 Route::resource('appointments', AppointmentController::class);
 Route::get('/doctors/{id}/register/', [AppointmentController::class, 'create'])->name('doctor.register-patient');
+Route::resource('/doctors/{doctorId}/patients/{patientId}/prescriptions', PrescriptionController::class);
