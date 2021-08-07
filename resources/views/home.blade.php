@@ -8,12 +8,14 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
+                    <a class="btn btn-info" href="{{route('doctors.index')}}">Doctor's list</a>
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
 
+                    <br><br>
                     {{ __('You are logged in!') }}
                 </div>
             </div>
