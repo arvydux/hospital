@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
 use Illuminate\Support\Facades\Auth;
@@ -28,3 +29,4 @@ Route::resource('doctors', DoctorController::class);
 Route::get('/patients/', [PatientController::class, 'index'])->name('patients.index');
 Route::get('/patients/create', [PatientController::class, 'create'])->name('patients.create');
 Route::post('/patients/store', [PatientController::class, 'store'])->name('patients.store');
+Route::resource('appointments', AppointmentController::class);
