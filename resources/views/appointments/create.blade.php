@@ -46,7 +46,45 @@
                         <input type="hidden" name="doctor-id" class="form-control" value="{{$doctor->id}}">
                     </div>
                 </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Doctor's appointment's duration time in minutes:</strong>
+                        {{$doctor->duration}}
+                    </div>
+                    <div class="form-group">
+                        <strong>Doctor's working days:</strong>
+                        @foreach($doctor->shifts as $shift)
+                            <div  class="form-group">{{$shift->day}}:
+                                {{Carbon\Carbon::parse($shift->from)
+                                ->format('H:i')}} -
+                                {{Carbon\Carbon::parse($shift->to)
+                                ->format('H:i')}}
+                            </div>
+                        @endforeach
+                        @foreach($doctor->shifts as $shift)
+                            <div class="form-group">
+                                <strong>Aavailable slots for day: </strong>{{$shift->day}}
+                                <div class="row">
+                                @foreach($doctor->timeSlots($shift->from, $shift->to) as $key => $timeSlot)
+                                        @if((in_array(Carbon\Carbon::parse($shift->day.' '.$timeSlot)->format('Y-m-d H:i:s'), $busySlots)))
+                                            <div class="col-lg-4">
+                                                <label for="{{Carbon\Carbon::parse($timeSlot)->format('Y-m-d H:i:s')}}"><span
+                                                        style="margin-left: 17px; text-decoration: line-through;">{{$timeSlot}}</span> </label>
+                                            </div>
+                                        @else
+                                            <div class="col-lg-4">
+                                                <input type="radio"  name="time" value="{{Carbon\Carbon::parse($shift->day.' '.$timeSlot)->format('Y-m-d H:i:s')}}"
+                                                       checked>
+                                                <label for="{{Carbon\Carbon::parse($timeSlot)->format('Y-m-d H:i:s')}}">{{$timeSlot}}</label>
+                                            </div>
+                                        @endif
+                                @endforeach
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
 
+                </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>

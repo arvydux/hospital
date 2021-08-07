@@ -40,6 +40,17 @@
                     <input type="text" name="email" class="form-control" placeholder="Email">
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Patient's doctor</strong>
+                    <select name="doctor-id" class="form-control">
+                        <option value="" selected disabled>Select a doctor</option>
+                        @foreach($doctors as $doctor)
+                            <option  value="{{ $doctor->id  }}">{{ $doctor->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>

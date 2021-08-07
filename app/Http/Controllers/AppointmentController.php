@@ -19,6 +19,11 @@ class AppointmentController extends Controller
 
     public function create($id)
     {
+        $busySlots = [];
+        $appointments = Appointment::where('doctor_id', $id)->get();
+        foreach ($appointments as $appointment){
+            $busySlots[] = $appointment->time;
+        }
         $doctor = doctor::find($id);
         $patients = patient::all();
         return view('appointments.create', compact('busySlots', 'doctor', 'patients'));
