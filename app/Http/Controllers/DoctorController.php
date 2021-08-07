@@ -15,4 +15,14 @@ class DoctorController extends Controller
         return view('doctors.index', compact('doctors'));
     }
 
+    public function patients($id)
+    {
+        $appointments = Appointment::where('doctor_id', $id)->get();
+        $patientsId = [];
+        foreach ($appointments as $appointment){
+            $patientsId[] = $appointment->patient_id;
+        }
+        $patients = Patient::whereIn('id', $patientsId)->get();
+        return view('doctors.patients', compact('patients', 'doctor'));
+    }
 }
