@@ -2,6 +2,11 @@
 
 @section('content')
 
+    @if(session()->get('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+    @endif
     <div class="container">
         <div class="row">
             <div class="col-lg-12 margin-tb">
@@ -24,10 +29,10 @@
                 <td>{{$doctor->name}}</td>
                 <td>{{$doctor->expertise}}</td>
                 <td>
-                    <a class="btn btn-info" href="{{ route('doctor.register-patient', $doctor->id)}}">Register patient</a>
+                    <a class="btn btn-info" href="{{ route('doctors.patients.register', $doctor->id)}}">Register patient</a>
+                    <a class="btn btn-info" href="{{ route('doctors.patients', $doctor->id)}}">View patients</a>
                     <a class="btn btn-info" href="{{ route('appointments.index', $doctor->id)}}">View appointments</a>
-                    <a class="btn btn-info" href="{{ route('doctor.patients', $doctor->id)}}">View patients</a>
-
+                    <a class="btn btn-info" href="{{ route('doctors.workdays.create', $doctor->id)}}">Add workday</a>
                 </td>
             </tr>
             @endforeach

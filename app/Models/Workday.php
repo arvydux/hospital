@@ -5,7 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DoctorShift extends Model
+class Workday extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'date', 'from', 'to', 'doctor_id'
+    ];
 }

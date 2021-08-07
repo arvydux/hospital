@@ -11,9 +11,9 @@ class Doctor extends Model
 {
     use HasFactory;
 
-    public function shifts()
+    public function workdays()
     {
-        return $this->hasMany(DoctorShift::class,'doctor_id');
+        return $this->hasMany(workday::class,'doctor_id');
     }
 
     public function timeSlots($start, $end)

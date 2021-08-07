@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\WorkdayController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PrescriptionController;
 use Illuminate\Support\Facades\Auth;
@@ -27,8 +28,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('doctors', DoctorController::class);
-Route::get('/doctors/{id}/register/', [AppointmentController::class, 'create'])->name('doctor.register-patient');
-Route::get('/doctors/{id}/patients/', [DoctorController::class, 'patients'])->name('doctor.patients');
+Route::get('/doctors/{id}/workdays/create', [WorkdayController::class, 'create'])->name('doctors.workdays.create');
+Route::post('/doctors/workdays/store', [WorkdayController::class, 'store'])->name('doctors.workdays.store');
+Route::get('/doctors/{id}/patients/', [DoctorController::class, 'patients'])->name('doctors.patients');
+Route::get('/doctors/{id}/register/', [AppointmentController::class, 'create'])->name('doctors.patients.register');
 Route::resource('/doctors/{doctorId}/patients/{patientId}/prescriptions', PrescriptionController::class);
 Route::resource('appointments', AppointmentController::class);
 Route::get('/patients/', [PatientController::class, 'index'])->name('patients.index');

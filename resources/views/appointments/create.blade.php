@@ -53,27 +53,27 @@
                     </div>
                     <div class="form-group">
                         <strong>Doctor's working days:</strong>
-                        @foreach($doctor->shifts as $shift)
-                            <div  class="form-group">{{$shift->day}}:
-                                {{Carbon\Carbon::parse($shift->from)
+                        @foreach($doctor->workdays as $workday)
+                            <div  class="form-group">{{$workday->date}}:
+                                {{Carbon\Carbon::parse($workday->from)
                                 ->format('H:i')}} -
-                                {{Carbon\Carbon::parse($shift->to)
+                                {{Carbon\Carbon::parse($workday->to)
                                 ->format('H:i')}}
                             </div>
                         @endforeach
-                        @foreach($doctor->shifts as $shift)
+                        @foreach($doctor->workdays as $workday)
                             <div class="form-group">
-                                <strong>Aavailable slots for day: </strong>{{$shift->day}}
+                                <strong>Available slots for day: </strong>{{$workday->day}}
                                 <div class="row">
-                                @foreach($doctor->timeSlots($shift->from, $shift->to) as $key => $timeSlot)
-                                        @if((in_array(Carbon\Carbon::parse($shift->day.' '.$timeSlot)->format('Y-m-d H:i:s'), $busySlots)))
+                                @foreach($doctor->timeSlots($workday->from, $workday->to) as $key => $timeSlot)
+                                        @if((in_array(Carbon\Carbon::parse($workday->day.' '.$timeSlot)->format('Y-m-d H:i:s'), $busySlots)))
                                             <div class="col-lg-4">
                                                 <label for="{{Carbon\Carbon::parse($timeSlot)->format('Y-m-d H:i:s')}}"><span
                                                         style="margin-left: 17px; text-decoration: line-through;">{{$timeSlot}}</span> </label>
                                             </div>
                                         @else
                                             <div class="col-lg-4">
-                                                <input type="radio"  name="time" value="{{Carbon\Carbon::parse($shift->day.' '.$timeSlot)->format('Y-m-d H:i:s')}}"
+                                                <input type="radio"  name="time" value="{{Carbon\Carbon::parse($workday->day.' '.$timeSlot)->format('Y-m-d H:i:s')}}"
                                                        checked>
                                                 <label for="{{Carbon\Carbon::parse($timeSlot)->format('Y-m-d H:i:s')}}">{{$timeSlot}}</label>
                                             </div>
@@ -83,7 +83,6 @@
                             </div>
                         @endforeach
                     </div>
-
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                     <button type="submit" class="btn btn-primary">Submit</button>

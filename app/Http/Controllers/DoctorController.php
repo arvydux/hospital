@@ -17,6 +17,7 @@ class DoctorController extends Controller
 
     public function patients($id)
     {
+        $doctor = Doctor::find($id);
         $appointments = Appointment::where('doctor_id', $id)->get();
         $patientsId = [];
         foreach ($appointments as $appointment){

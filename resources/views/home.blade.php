@@ -11,6 +11,7 @@
                     <a class="btn btn-info" href="{{route('doctors.index')}}">Doctor's list</a>
                     <a class="btn btn-info" href="{{route('patients.index')}}">Patient's list</a>
                     <a class="btn btn-info" href="{{route('appointments.index')}}">Appointment's list</a>
+                    <a class="btn btn-info" href="{{route('appointments.index')}}">Appointment's list</a>
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
