@@ -16,9 +16,9 @@ class PrescriptionController extends Controller
 {
     public function index($doctorId, $patientId)
     {
-        $prescriptions = Prescription::where('doctor_id', $doctorId)->where('patient_id', $patientId)->get();
         $doctor = Doctor::find($doctorId);
         $patient = Patient::find($patientId);
+        $prescriptions = Patient::find($patientId)->prescriptions()->paginate(5);
         return view('prescriptions.index', compact('doctor','patient', 'prescriptions'));
     }
 

@@ -16,12 +16,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 margin-tb">
-                <div class="pull-left">
-                    <h2>Patient {{$patient->name}} prescriptions</h2>
-                </div>
-                <div class="pull-right">
-                    <a class="btn btn-primary" href="{{route('doctors.patients', $doctor->id)}}"> Back</a>
-                </div>
+                <h2>Patient {{$patient->name}} prescriptions</h2>
             </div>
         </div>
 
@@ -33,15 +28,15 @@
                 <th>Assigned at</th>
                 <th>Prescription actions</th>
             </tr>
-            @foreach($patient->prescriptions  as $prescription)
+            @foreach($prescriptions  as $prescription)
                 <tr>
                     <td>{{$prescription->id}}</td>
                     <td>{{$prescription->drug_name}}</td>
                     <td>{{$prescription->symptoms}}</td>
                     <td>{{$prescription->created_at}}</td>
                     <td>
-                        @if($prescription->hasOneHourPassed)
-                        <form action="{{route('doctors.patients.prescriptions.destroy', [$doctor->id, $patient->id, $prescription->id])}}" method="POST">
+                        @if(!$prescription->hasOneHourPassed)
+                        <form action="{{route('doctors.patients.prescriptions.destroy', [$doctor->id, 1, $prescription->id])}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger" type="submit">Delete</button>
@@ -53,5 +48,6 @@
                 </tr>
             @endforeach
             </tbody></table>
+        {!! $prescriptions->links() !!}
     </div>
 @endsection
