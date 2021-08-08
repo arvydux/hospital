@@ -6,9 +6,11 @@ use App\Mail\PrescriptionMail;
 use App\Models\Doctor;
 use App\Models\Patient;
 use App\Models\Prescription;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
+use phpDocumentor\Reflection\Types\Boolean;
 
 class PrescriptionController extends Controller
 {
@@ -63,11 +65,8 @@ class PrescriptionController extends Controller
 
     public function destroy($doctorId, $patientId, $prescriptionId)
     {
-        //$patient = Patient::find($patientId);
-        //$doctor = Doctor::find($doctorId);
         $prescription = prescription::find($prescriptionId);
         $prescription->delete();
-        //return view('prescriptions.index', compact('patient','doctor'))->with('success', 'Prescription deleted!');;
         return redirect(route('doctors.patients.prescriptions', [$doctorId, $patientId]))->with('success', 'Prescription deleted!');
     }
 
