@@ -20,14 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="86e0c672-6ba9-46ae-be80-7c352f208862" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DoctorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DoctorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/hospital.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hospital.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -148,6 +154,7 @@
       <path value="$PROJECT_DIR$/vendor/laravel/framework" />
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/vendor/dflydev/dot-access-data" />
+      <path value="$PROJECT_DIR$/vendor/laravel/sanctum" />
     </include_path>
   </component>
   <component name="ProjectId" id="1wOprIwpBYUjPQ8wrHBlPq6YvsI" />
@@ -179,7 +186,8 @@
       <option name="presentableId" value="Default" />
       <updated>1628339686630</updated>
       <workItem from="1628339687788" duration="969000" />
-      <workItem from="1628360967035" duration="25106000" />
+      <workItem from="1628360967035" duration="25735000" />
+      <workItem from="1628436823435" duration="3519000" />
     </task>
     <servers />
   </component>
@@ -199,14 +207,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="389" y="62" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1628362031172">
+    <state x="389" y="62" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1628438452927">
       <screen x="0" y="0" width="1360" height="720" />
     </state>
-    <state x="389" y="62" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1360.720@0.0.1360.720" timestamp="1628362031172" />
-    <state x="410" y="115" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1628423553289">
+    <state x="389" y="62" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1360.720@0.0.1360.720" timestamp="1628438452927" />
+    <state x="410" y="115" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1628439313604">
       <screen x="0" y="0" width="1360" height="720" />
     </state>
-    <state x="410" y="115" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1360.720@0.0.1360.720" timestamp="1628423553289" />
+    <state x="410" y="115" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1360.720@0.0.1360.720" timestamp="1628439313604" />
     <state x="514" y="283" key="NewPhpFileDialog" timestamp="1628418751412">
       <screen x="0" y="0" width="1360" height="720" />
     </state>
