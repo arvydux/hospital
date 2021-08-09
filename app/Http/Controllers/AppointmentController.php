@@ -24,7 +24,10 @@ class AppointmentController extends Controller
         foreach ($appointments as $appointment){
             $busySlots[] = $appointment->time;
         }
-        $doctor = doctor::find($id);
+
+        $doctor = doctor::with(['workdays' => function ($q){
+            $q->orderBy('date');
+        }])->find($id);
         $patients = patient::all();
         return view('appointments.create', compact('busySlots', 'doctor', 'patients'));
     }
@@ -46,8 +49,35 @@ class AppointmentController extends Controller
 
         $appointments = Appointment::all();
         return view('appointments.index', compact('appointments'));
-        //$patient = Doctor::find($request->get('doctor-id'))->patients->find($request->get('patient-id'));
-        //return redirect(route('prescriptions.index', [$request->get('doctor-id'), $request->get('patient-id')]))->with('patient', $patient)->with('success', 'Prescription created!');
+    }
+
+    public function edit($id)
+    {
+        $currentAppointment = Appointment::find($id);
+        $currentPatient = patient::find($currentAppointment->patient_id);
+        $appointments = Appointment::where('doctor_id', $currentAppointment->doctor_id)->get();
+        $busySlots = [];
+        foreach ($appointments as $appointment){
+            $busySlots[] = $appointment->time;
+        }
+
+        $doctor = doctor::with(['workdays' => function ($q){
+            $q->orderBy('date');
+        }])->find($currentAppointment->doctor_id);
+        return view('appointments.edit', compact('currentAppointment','busySlots', 'doctor', 'currentPatient'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'time'=>'required',
+        ]);
+        $appointment = Appointment::find($id);
+        $appointment->time = $request->get('time');
+        $appointment->save();
+
+        $appointments = Appointment::all();
+        return view('appointments.index', compact('appointments'));
     }
 
     public function destroy($id)

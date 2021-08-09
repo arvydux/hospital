@@ -63,17 +63,17 @@
                         @endforeach
                         @foreach($doctor->workdays as $workday)
                             <div class="form-group">
-                                <strong>Available slots for day: </strong>{{$workday->day}}
+                                <strong>Available slots for : </strong>{{$workday->date}}
                                 <div class="row">
                                 @foreach($doctor->timeSlots($workday->from, $workday->to) as $key => $timeSlot)
-                                        @if((in_array(Carbon\Carbon::parse($workday->day.' '.$timeSlot)->format('Y-m-d H:i:s'), $busySlots)))
+                                        @if((in_array(Carbon\Carbon::parse($workday->date.' '.$timeSlot)->format('Y-m-d H:i:s'), $busySlots)))
                                             <div class="col-lg-4">
                                                 <label for="{{Carbon\Carbon::parse($timeSlot)->format('Y-m-d H:i:s')}}"><span
                                                         style="margin-left: 17px; text-decoration: line-through;">{{$timeSlot}}</span> </label>
                                             </div>
                                         @else
                                             <div class="col-lg-4">
-                                                <input type="radio"  name="time" value="{{Carbon\Carbon::parse($workday->day.' '.$timeSlot)->format('Y-m-d H:i:s')}}"
+                                                <input type="radio"  name="time" value="{{Carbon\Carbon::parse($workday->date.' '.$timeSlot)->format('Y-m-d H:i:s')}}"
                                                        checked>
                                                 <label for="{{Carbon\Carbon::parse($timeSlot)->format('Y-m-d H:i:s')}}">{{$timeSlot}}</label>
                                             </div>

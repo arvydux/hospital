@@ -31,8 +31,12 @@ Route::resource('doctors', DoctorController::class);
 Route::get('/doctors/{id}/workdays/create', [WorkdayController::class, 'create'])->name('doctors.workdays.create');
 Route::post('/doctors/workdays/store', [WorkdayController::class, 'store'])->name('doctors.workdays.store');
 Route::get('/doctors/{id}/appointments/', [DoctorController::class, 'appointments'])->name('doctors.appointments');
+Route::get('/doctors/{id}/appointments/create', [AppointmentController::class, 'create'])->name('doctors.appointments.create');
+Route::get('/doctors/appointments/{appointmentsId}/edit', [AppointmentController::class, 'edit'])
+    ->name('doctors.appointments.edit');
+Route::put('/doctors/appointments/{appointmentsId}/update', [AppointmentController::class, 'update'])
+    ->name('doctors.appointments.update');
 Route::get('/doctors/{id}/patients/', [DoctorController::class, 'patients'])->name('doctors.patients');
-Route::get('/doctors/{id}/register/', [AppointmentController::class, 'create'])->name('doctors.patients.register');
 Route::get('/doctors/{doctorId}/patients/{patientId}/prescriptions', [PrescriptionController::class, 'index'])->name('doctors.patients.prescriptions');
 Route::get('/doctors/{doctorId}/patients/{patientId}/prescriptions/create', [PrescriptionController::class, 'create'])->name('doctors.patients.prescriptions.create');
 Route::post('/doctors/{doctorId}/patients/{patientId}/prescriptions/store',

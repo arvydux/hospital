@@ -35,7 +35,7 @@
                         <form action="{{route('appointments.destroy', $appointment->id)}}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <a class="btn btn-primary" href="http://127.0.0.1:8000/tasks/1">Edit</a>
+                            <a class="btn btn-primary" href="{{route('doctors.appointments.edit', $appointment->id)}}">Edit</a>
                             <button class="btn btn-danger" type="submit">Delete</button>
                         </form>
                     </td>

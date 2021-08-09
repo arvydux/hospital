@@ -20,13 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="86e0c672-6ba9-46ae-be80-7c352f208862" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/hospital.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hospital.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Appointment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Appointment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/appointments/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/appointments/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/appointments/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/appointments/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/appointments/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/appointments/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/doctors/appointments.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/doctors/appointments.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/doctors/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/doctors/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +189,11 @@
       <updated>1628339686630</updated>
       <workItem from="1628339687788" duration="969000" />
       <workItem from="1628360967035" duration="25735000" />
-      <workItem from="1628436823435" duration="3519000" />
+      <workItem from="1628436823435" duration="4400000" />
+      <workItem from="1628460132837" duration="10000" />
+      <workItem from="1628488863851" duration="1152000" />
+      <workItem from="1628511938019" duration="8400000" />
+      <workItem from="1628525737784" duration="1858000" />
     </task>
     <servers />
   </component>
@@ -219,13 +225,24 @@
       <screen x="0" y="0" width="1360" height="720" />
     </state>
     <state x="514" y="283" key="NewPhpFileDialog/0.0.1360.720@0.0.1360.720" timestamp="1628418751412" />
-    <state x="387" y="64" width="585" height="592" key="find.popup" timestamp="1628361339779">
+    <state x="387" y="64" width="585" height="624" key="find.popup" timestamp="1628525837828">
       <screen x="0" y="0" width="1360" height="720" />
     </state>
-    <state x="387" y="64" width="585" height="592" key="find.popup/0.0.1360.720@0.0.1360.720" timestamp="1628361339779" />
+    <state x="387" y="64" width="585" height="624" key="find.popup/0.0.1360.720@0.0.1360.720" timestamp="1628525837828" />
     <state x="343" y="41" width="672" height="678" key="search.everywhere.popup" timestamp="1628341312475">
       <screen x="0" y="0" width="1360" height="720" />
     </state>
     <state x="343" y="41" width="672" height="678" key="search.everywhere.popup/0.0.1360.720@0.0.1360.720" timestamp="1628341312475" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/doctors/index.blade.php</url>
+          <line>2</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
