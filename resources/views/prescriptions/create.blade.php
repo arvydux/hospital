@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container">
         <div class="row">
             <div class="col-lg-12 margin-tb">
@@ -23,15 +24,13 @@
                 </ul>
             </div>
         @endif
-
         <form action="{{ route('doctors.patients.prescriptions.store', [$doctor->id, $patient->id])}}" method="POST">
             @csrf
-
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Drug name:</strong>
-                        <input type="text" name="drug-name" class="form-control" placeholder="Drug name">
+                        <input type="text" id="drug-name" name="drug-name" class="form-control typeahead" placeholder="Drug name">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -64,4 +63,16 @@
             </div>
         </form>
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" ></script>
+    <script type="text/javascript">
+        var path = "{{ url('autocomplete-search-query') }}";
+        $('input.typeahead').typeahead({
+            source:  function (query, process) {
+                return $.get(path, { query: query }, function (data) {
+                    return process(data);
+                });
+            }
+        });
+    </script>
 @endsection

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\AutocompleteSearchDBController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\WorkdayController;
 use App\Http\Controllers\PatientController;
@@ -50,3 +51,4 @@ Route::resource('appointments', AppointmentController::class);
 Route::get('/patients/', [PatientController::class, 'index'])->name('patients.index');
 Route::get('/patients/create', [PatientController::class, 'create'])->name('patients.create');
 Route::post('/patients/store', [PatientController::class, 'store'])->name('patients.store');
+Route::get('/autocomplete-search-query', [AutocompleteSearchDBController::class, 'searchDB'])->name('autocomplete.search.query');
