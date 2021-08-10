@@ -34,6 +34,6 @@ class WorkdayController extends Controller
         $workday->save();
 
         $doctors = Doctor::all();
-        return redirect(route('doctors.index'))->with('doctors', $doctors)->with('success', 'Workday was added successfully!');
+        return redirect(route('home'))->with('doctors', $doctors)->with('success', 'Workday was added successfully!');
     }
 }

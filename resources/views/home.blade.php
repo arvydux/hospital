@@ -28,7 +28,7 @@
                                             <td>
                                                 <a class="btn btn-info" href="{{ route('doctors.patients', $doctor->id)}}">View patients</a>
                                                 <a class="btn btn-info" href="{{ route('doctors.prescriptions', $doctor->id)}}">View prescriptions</a>
-                                                <a class="btn btn-info" href="{{ route('doctors.workdays.create', $doctor->id)}}">Add workday</a>
+                                                <a class="btn btn-success" href="{{ route('doctors.workdays.create', $doctor->id)}}">Add workday</a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -56,7 +56,7 @@
                     @endif
                     @if(auth()->user()->hasRole('Receptionist'))
                 <div class="card-body">
-                    <a class="btn btn-info" href="{{route('patients.create')}}">Register new patient</a>
+                    <a class="btn btn-success" href="{{route('patients.create')}}">Register new patient</a>
                 </div>
                         <div class="card-body">
                             <table class="table table-bordered">
@@ -71,7 +71,7 @@
                                         <td>{{$doctor->expertise}}</td>
                                         <td>
                                             <a class="btn btn-info" href="{{ route('doctors.appointments', $doctor->id)}}">View appointments</a>
-                                            <a class="btn btn-info" href="{{ route('doctors.workdays.create', $doctor->id)}}">Add workday</a>
+                                            <a class="btn btn-success" href="{{ route('doctors.workdays.create', $doctor->id)}}">Add workday</a>
                                         </td>
                                     </tr>
                                 @endforeach

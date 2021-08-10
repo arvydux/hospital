@@ -7,8 +7,8 @@
                 <div class="pull-left">
                     <h2>Add new workday for {{$doctor->name}}</h2>
                 </div>
-                <div class="pull-right">
-                    <a class="btn btn-primary" href="{{route('doctors.index')}}"> Back</a>
+                <div class="pull-right mt-3 mb-3">
+                    <a class="btn btn-primary" href="{{route('home')}}">Go back</a>
                 </div>
             </div>
         </div>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-success">Add workday</button>
                 </div>
             </div>
         </form>

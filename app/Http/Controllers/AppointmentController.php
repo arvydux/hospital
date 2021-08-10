@@ -46,9 +46,7 @@ class AppointmentController extends Controller
             'patient_id' => $request->get('patient-id')
         ]);
         $appointment->save();
-
-        $appointments = Appointment::all();
-        return view('appointments.index', compact('appointments'));
+        return redirect(route('doctors.appointments', $request->get('doctor-id')))->with('success', 'Appointment was created');
     }
 
     public function edit($doctorId, $appointmentId)
@@ -75,8 +73,6 @@ class AppointmentController extends Controller
         $appointment = Appointment::find($id);
         $appointment->time = $request->get('time');
         $appointment->save();
-
-        $appointments = Appointment::all();
         return redirect(route('doctors.appointments', $appointment->doctor_id))->with('success', 'Appointment time was updated');
     }
 

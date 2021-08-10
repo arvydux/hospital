@@ -7,8 +7,8 @@
                 <div class="pull-left">
                     <h2>Create new appointment to {{$doctor->name}}</h2>
                 </div>
-                <div class="pull-right">
-                    <a class="btn btn-primary" href="{{route('appointments.index')}}"> Back</a>
+                <div class="pull-right mt-3 mb-3">
+                    <a class="btn btn-primary" href="{{route('doctors.appointments', $doctor->id)}}">Go back</a>
                 </div>
             </div>
         </div>
@@ -48,13 +48,13 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Doctor's appointment's duration time in minutes:</strong>
+                        <strong>Doctor's appointment duration time in minutes:</strong>
                         {{$doctor->duration}}
                     </div>
                     <div class="form-group">
                         <strong>Doctor's working days:</strong>
                         @foreach($doctor->workdays as $workday)
-                            <div  class="form-group">{{$workday->date}}:
+                            <div  class="form-group mt-3 mb-3">{{$workday->date}}:
                                 {{$workday->from}} -
                                 {{$workday->to}}
                             </div>
@@ -62,7 +62,7 @@
                         @foreach($doctor->workdays as $workday)
                             <div class="form-group">
                                 <strong>Available slots for : </strong>{{$workday->date}}
-                                <div class="row">
+                                <div class="row mt-3 mb-3">
                                 @foreach($doctor->timeSlots($workday->from, $workday->to) as $key => $timeSlot)
                                         @if((in_array(Carbon\Carbon::parse($workday->date.' '.$timeSlot)->format('Y-m-d H:i:s'), $busySlots)))
                                             <div class="col-lg-4">
@@ -83,7 +83,7 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-success">Make appointment</button>
                 </div>
             </div>
         </form>

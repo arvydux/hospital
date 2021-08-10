@@ -34,7 +34,6 @@ class PatientController extends Controller
         ]);
         $patient->save();
 
-        $patients = Patient::with('doctor')->get();
-        return redirect(route('patients.index'))->with('patients', $patients)->with('success', 'Patient registered!');
+        return redirect(route('home'))->with('success', 'Patient registered!');
     }
 }
