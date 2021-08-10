@@ -55,10 +55,8 @@
                         <strong>Doctor's working days:</strong>
                         @foreach($doctor->workdays as $workday)
                             <div  class="form-group">{{$workday->date}}:
-                                {{Carbon\Carbon::parse($workday->from)
-                                ->format('H:i')}} -
-                                {{Carbon\Carbon::parse($workday->to)
-                                ->format('H:i')}}
+                                {{$workday->from}} -
+                                {{$workday->to}}
                             </div>
                         @endforeach
                         @foreach($doctor->workdays as $workday)

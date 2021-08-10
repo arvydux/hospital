@@ -5,10 +5,10 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Change {{$currentPatient->name}}'s appointment's time to {{$doctor->name}}</h2>
+                    <h2>Change {{ $currentPatient->name }}'s appointment's time to {{ $doctor->name }}</h2>
                 </div>
                 <div class="pull-right mt-2">
-                    <a class="btn btn-primary mb-4" href="{{route('appointments.index')}}"> Back</a>
+                    <a class="btn btn-primary mb-4" href="{{ URL::previous() }}">Go Back</a>
                 </div>
             </div>
         </div>

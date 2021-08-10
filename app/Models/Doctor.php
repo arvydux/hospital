@@ -18,7 +18,7 @@ class Doctor extends Model
 
     public function workdays()
     {
-        return $this->hasMany(workday::class,'doctor_id');
+        return $this->hasMany(workday::class,'doctor_id')->orderBy('date');
     }
 
     public function timeSlots($start, $end)

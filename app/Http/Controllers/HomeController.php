@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 
@@ -25,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $doctors = Doctor::all();
+
         $chart_options = [
             'chart_title' => 'Prescriptions by days',
             'report_type' => 'group_by_date',
@@ -35,6 +38,6 @@ class HomeController extends Controller
         ];
         $chart1 = new LaravelChart($chart_options);
 
-        return view('home', compact('chart1'));
+        return view('home', compact('doctors', 'chart1'));
     }
 }

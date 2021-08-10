@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\Patient;
+use App\Models\Prescription;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -32,5 +33,11 @@ class DoctorController extends Controller
         }
         $patients = Patient::whereIn('id', $patientsId)->paginate(2);
         return view('doctors.patients', compact('patients', 'doctor'));
+    }
+
+    public function prescriptions($doctorId)
+    {
+        $prescriptions = Prescription::where('doctor_id', $doctorId);
+        return view('doctors.prescriptions', compact('prescriptions', 'doctor'));
     }
 }

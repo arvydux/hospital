@@ -16,8 +16,6 @@
 
             </div>
         </div>
-
-
         <table class="table table-bordered">
             <tbody><tr>
                 <th>Name</th>

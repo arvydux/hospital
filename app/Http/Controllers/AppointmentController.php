@@ -51,9 +51,9 @@ class AppointmentController extends Controller
         return view('appointments.index', compact('appointments'));
     }
 
-    public function edit($id)
+    public function edit($doctorId, $appointmentId)
     {
-        $currentAppointment = Appointment::find($id);
+        $currentAppointment = Appointment::find($appointmentId);
         $currentPatient = patient::find($currentAppointment->patient_id);
         $appointments = Appointment::where('doctor_id', $currentAppointment->doctor_id)->get();
         $busySlots = [];
@@ -77,7 +77,7 @@ class AppointmentController extends Controller
         $appointment->save();
 
         $appointments = Appointment::all();
-        return view('appointments.index', compact('appointments'));
+        return redirect(route('doctors.appointments', $appointment->doctor_id))->with('success', 'Appointment time was updated');
     }
 
     public function destroy($id)
