@@ -52,3 +52,8 @@ Route::get('/patients/', [PatientController::class, 'index'])->name('patients.in
 Route::get('/patients/create', [PatientController::class, 'create'])->name('patients.create');
 Route::post('/patients/store', [PatientController::class, 'store'])->name('patients.store');
 Route::get('/autocomplete-search-query', [AutocompleteSearchDBController::class, 'searchDB'])->name('autocomplete.search.query');
+
+Route::get('/user-check', function (\Illuminate\Http\Request $request) {
+    $user = $request->user();
+    dd($user->hasRole('arvy'));
+});
