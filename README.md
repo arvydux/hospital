@@ -7,6 +7,7 @@ This app was made according gained task, during 4-5 days.
 ## Installation
 
     git clone git@github.com:arvydux/hospital.git
+    cd hospital
     composer install
     composer update
     cp .env.example .env
