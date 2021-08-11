@@ -31,7 +31,7 @@ class DoctorController extends Controller
         foreach ($appointments as $appointment){
             $patientsId[] = $appointment->patient_id;
         }
-        $patients = Patient::whereIn('id', $patientsId)->paginate(2);
+        $patients = Patient::whereIn('id', $patientsId)->paginate(3);
         return view('doctors.patients', compact('patients', 'doctor'));
     }
 

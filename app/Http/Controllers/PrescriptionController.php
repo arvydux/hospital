@@ -6,11 +6,9 @@ use App\Mail\PrescriptionMail;
 use App\Models\Doctor;
 use App\Models\Patient;
 use App\Models\Prescription;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
-use phpDocumentor\Reflection\Types\Boolean;
 
 class PrescriptionController extends Controller
 {
@@ -18,7 +16,7 @@ class PrescriptionController extends Controller
     {
         $doctor = Doctor::find($doctorId);
         $patient = Patient::find($patientId);
-        $prescriptions = Patient::find($patientId)->prescriptions()->paginate(3);
+        $prescriptions = Patient::find($patientId)->prescriptions()->paginate(5);
         return view('prescriptions.index', compact('doctor','patient', 'prescriptions'));
     }
 
@@ -55,12 +53,6 @@ class PrescriptionController extends Controller
         return redirect(route('doctors.patients', $request->get('doctor-id')))
             ->with('success', 'Prescription created! Email notification was sent to patient.');
 
-    }
-
-    public function show($prescriptionId)
-    {
-        //$prescription = prescription::find($prescriptionId);
-        //return view('prescriptions.create', compact('patient','doctor'))->with('success', 'Prescription deleted!');;;
     }
 
     public function destroy($doctorId, $patientId, $prescriptionId)
