@@ -43,6 +43,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function roles()
     {
         return $this->belongsToMany(Role::class,'user_roles');
@@ -53,6 +56,10 @@ class User extends Authenticatable
         return $this->belongsToMany(Permission::class,'user_permissions');
     }
 
+    /**
+     * @param mixed ...$roles
+     * @return bool
+     */
     public function hasRole(...$roles)
     {
         foreach($roles as $role)

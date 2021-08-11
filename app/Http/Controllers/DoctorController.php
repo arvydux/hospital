@@ -10,12 +10,19 @@ use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function index()
     {
         $doctors = Doctor::all();
         return view('doctors.index', compact('doctors'));
     }
 
+    /**
+     * @param $doctorId
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function prescriptions($doctorId)
     {
         $prescriptions = Prescription::where('doctor_id', $doctorId)->paginate(5);

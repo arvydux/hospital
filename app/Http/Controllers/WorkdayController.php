@@ -10,12 +10,20 @@ use Illuminate\Http\Request;
 
 class WorkdayController extends Controller
 {
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function create($id)
     {
         $doctor = doctor::find($id);
         return view('workdays.create', compact( 'doctor'));
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function store(Request $request)
     {
         $request->validate([

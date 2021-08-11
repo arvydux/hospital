@@ -11,16 +11,27 @@ class Doctor extends Model
 {
     use HasFactory;
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function appointments()
     {
         return $this->hasMany(appointment::class,'doctor_id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function workdays()
     {
         return $this->hasMany(workday::class,'doctor_id')->orderBy('date');
     }
 
+    /**
+     * @param $start
+     * @param $end
+     * @return array
+     */
     public function timeSlots($start, $end)
     {
         $data = [];

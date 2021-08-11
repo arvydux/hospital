@@ -13,11 +13,17 @@ class Patient extends Model
         'name', 'email', 'doctor_id'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function doctor()
     {
         return $this->belongsTo(Doctor::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function prescriptions()
     {
         return $this->hasMany(Prescription::class,'patient_id');

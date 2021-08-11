@@ -14,6 +14,10 @@ class Prescription extends Model
         'drug_name', 'symptoms', 'patient_id', 'doctor_id'
     ];
 
+    /**
+     * @param $prescription
+     * @return bool
+     */
     public function getHasOneHourPassedAttribute($prescription){
         $timeNow = Carbon::now();
         $timeDiff = $timeNow->diffInHours($this->created_at);

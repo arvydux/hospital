@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Mail;
 
 class PrescriptionController extends Controller
 {
+    /**
+     * @param $doctorId
+     * @param $patientId
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function index($doctorId, $patientId)
     {
         $doctor = Doctor::find($doctorId);
@@ -20,6 +25,11 @@ class PrescriptionController extends Controller
         return view('prescriptions.index', compact('doctor','patient', 'prescriptions'));
     }
 
+    /**
+     * @param $doctorId
+     * @param $patientId
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function create($doctorId, $patientId)
     {
         $patient = Patient::find($patientId);
@@ -27,6 +37,10 @@ class PrescriptionController extends Controller
         return view('prescriptions.create', compact('patient','doctor'));;
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -55,6 +69,12 @@ class PrescriptionController extends Controller
 
     }
 
+    /**
+     * @param $doctorId
+     * @param $patientId
+     * @param $prescriptionId
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function destroy($doctorId, $patientId, $prescriptionId)
     {
         $prescription = prescription::find($prescriptionId);
@@ -62,6 +82,9 @@ class PrescriptionController extends Controller
         return redirect(route('doctors.patients.prescriptions', [$doctorId, $patientId]))->with('success', 'Prescription deleted!');
     }
 
+    /**
+     * @param $prescription
+     */
     public function sendEmailNotification($prescription)
     {
         $patient = Patient::find($prescription->patient_id);

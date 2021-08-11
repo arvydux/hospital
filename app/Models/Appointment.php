@@ -14,11 +14,17 @@ class Appointment extends Model
         'time', 'doctor_id', 'patient_id'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function doctor()
     {
         return $this->belongsTo(Doctor::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function patient()
     {
         return $this->belongsTo(Patient::class);

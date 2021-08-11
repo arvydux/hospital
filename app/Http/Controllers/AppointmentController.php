@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function index($id)
     {
         $doctor = Doctor::find($id);
@@ -18,6 +22,10 @@ class AppointmentController extends Controller
         return view('appointments.index', compact('appointments', 'doctor'));
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function create($id)
     {
         $busySlots = [];
@@ -33,6 +41,10 @@ class AppointmentController extends Controller
         return view('appointments.create', compact('busySlots', 'doctor', 'patients'));
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -50,6 +62,11 @@ class AppointmentController extends Controller
         return redirect(route('doctors.appointments', $request->get('doctor-id')))->with('success', 'Appointment was created');
     }
 
+    /**
+     * @param $doctorId
+     * @param $appointmentId
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function edit($doctorId, $appointmentId)
     {
         $currentAppointment = Appointment::find($appointmentId);
@@ -66,6 +83,11 @@ class AppointmentController extends Controller
         return view('appointments.edit', compact('currentAppointment','busySlots', 'doctor', 'currentPatient'));
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -77,6 +99,10 @@ class AppointmentController extends Controller
         return redirect(route('doctors.appointments', $appointment->doctor_id))->with('success', 'Appointment time was updated');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy($id)
     {
         $appointment = Appointment::findOrFail($id);

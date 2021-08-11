@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class PatientController extends Controller
 {
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function index($id)
     {
         $doctor = Doctor::find($id);
@@ -20,12 +24,19 @@ class PatientController extends Controller
         return view('patients.index', compact('patients', 'doctor'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function create()
     {
         $doctors = Doctor::all();
         return view('patients.create', compact('doctors'));
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function store(Request $request)
     {
         $request->validate([

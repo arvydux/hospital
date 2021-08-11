@@ -14,11 +14,19 @@ class Workday extends Model
         'date', 'from', 'to', 'doctor_id'
     ];
 
+    /**
+     * @param $from
+     * @return string
+     */
     public function getFromAttribute($from)
     {
         return Carbon::parse($from)->format('H:i');
     }
 
+    /**
+     * @param $to
+     * @return string
+     */
     public function getToAttribute($to)
     {
         return Carbon::parse($to)->format('H:i');
