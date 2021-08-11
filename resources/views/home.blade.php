@@ -27,7 +27,7 @@
                                             <td>{{$doctor->expertise}}</td>
                                             <td>
                                                 <a class="btn btn-info" href="{{ route('doctors.patients', $doctor->id)}}">View patients</a>
-                                                <a class="btn btn-info" href="{{ route('doctors.prescriptions', $doctor->id)}}">View prescriptions</a>
+                                                <a class="btn btn-info" href="{{ route('doctors.prescriptions', $doctor->id)}}">View all prescriptions</a>
                                                 <a class="btn btn-success" href="{{ route('doctors.workdays.create', $doctor->id)}}">Add workday</a>
                                             </td>
                                         </tr>

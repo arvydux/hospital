@@ -31,7 +31,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('doctors', DoctorController::class);
     Route::get('/doctors/{id}/workdays/create', [WorkdayController::class, 'create'])->name('doctors.workdays.create');
     Route::post('/doctors/workdays/store', [WorkdayController::class, 'store'])->name('doctors.workdays.store');
-    Route::get('/doctors/{id}/appointments/', [DoctorController::class, 'appointments'])->name('doctors.appointments');
+    Route::get('/doctors/{id}/appointments/', [AppointmentController::class, 'index'])->name('doctors.appointments');
     Route::get('/doctors/{id}/appointments/create', [AppointmentController::class, 'create'])
         ->name('doctors.appointments.create');
     Route::get('/doctors/{id}/appointments/{appointmentsId}/edit', [AppointmentController::class, 'edit'])
@@ -40,7 +40,7 @@ Route::group(['middleware' => ['auth']], function () {
         ->name('doctors.appointments.update');
     Route::get('/doctors/{id}/prescriptions/', [DoctorController::class, 'prescriptions'])
         ->name('doctors.prescriptions');
-    Route::get('/doctors/{id}/patients/', [DoctorController::class, 'patients'])->name('doctors.patients');
+    Route::get('/doctors/{id}/patients/', [PatientController::class, 'index'])->name('doctors.patients');
     Route::get('/doctors/{doctorId}/patients/{patientId}/prescriptions', [PrescriptionController::class, 'index'])
         ->name('doctors.patients.prescriptions');
     Route::get('/doctors/{doctorId}/patients/{patientId}/prescriptions/create', [PrescriptionController::class, 'create'])

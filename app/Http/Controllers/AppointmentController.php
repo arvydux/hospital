@@ -11,10 +11,11 @@ use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
-    public function index()
+    public function index($id)
     {
-        $appointments = appointment::all();
-        return view('appointments.index', compact('appointments'));
+        $doctor = Doctor::find($id);
+        $appointments = $doctor->appointments;
+        return view('appointments.index', compact('appointments', 'doctor'));
     }
 
     public function create($id)

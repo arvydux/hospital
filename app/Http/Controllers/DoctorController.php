@@ -16,28 +16,10 @@ class DoctorController extends Controller
         return view('doctors.index', compact('doctors'));
     }
 
-    public function appointments($id)
-    {
-        $doctor = Doctor::find($id);
-        $appointments = $doctor->appointments;
-        return view('doctors.appointments', compact('appointments', 'doctor'));
-    }
-
-    public function patients($id)
-    {
-        $doctor = Doctor::find($id);
-        $appointments = $doctor->appointments;
-        $patientsId = [];
-        foreach ($appointments as $appointment){
-            $patientsId[] = $appointment->patient_id;
-        }
-        $patients = Patient::whereIn('id', $patientsId)->paginate(3);
-        return view('doctors.patients', compact('patients', 'doctor'));
-    }
-
     public function prescriptions($doctorId)
     {
-        $prescriptions = Prescription::where('doctor_id', $doctorId);
+        $prescriptions = Prescription::where('doctor_id', $doctorId)->paginate(5);
+        $doctor = Doctor::find($doctorId);
         return view('doctors.prescriptions', compact('prescriptions', 'doctor'));
     }
 }

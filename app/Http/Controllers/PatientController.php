@@ -8,10 +8,16 @@ use Illuminate\Http\Request;
 
 class PatientController extends Controller
 {
-    public function index()
+    public function index($id)
     {
-        $patients = Patient::with('doctor')->get();
-        return view('patients.index', compact('patients'));
+        $doctor = Doctor::find($id);
+        $appointments = $doctor->appointments;
+        $patientsId = [];
+        foreach ($appointments as $appointment){
+            $patientsId[] = $appointment->patient_id;
+        }
+        $patients = Patient::whereIn('id', $patientsId)->paginate(3);
+        return view('patients.index', compact('patients', 'doctor'));
     }
 
     public function create()
